@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Site</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Karla|Yantramanav|Open+Sans|PT+Sans+Narrow:300|Fredoka+One|Lato|Roboto" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<style>
+    
+    a,a:link,a:visited,.a:hover,.a:focus,a:active{
+        color: inherit;
+        text-decoration: none;
+    }
+    
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        outline: 0;
+    }
+    
+    body {
+        margin: 0
+    }
+    
+    .first {
+        background: #6950F7;
+        padding: 10px;
+        min-height: 100vh;
+        width: 100%;
+        position: relative;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1462730677245-b7da0ec225d9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b2c1faa1496f3331fb0630deda056d64&auto=format&fit=crop&w=1267&q=80"); 
+    }
+    
+    .first .content {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+        max-width: 500px;
+        padding: 40px 40px 0;
+    }
+    
+    .first h1 {
+        color: #fff;
+        font-family: 'Karla';
+        font-size: 44px;
+        margin: 0;
+        padding: 10px 0;
+    }
+    
+    .first .content p {
+        color: #e6e6e6;
+        margin: 0;
+        padding: 10px 0;
+        font-family: 'Yantramanav';
+        font-size: 21px;
+    }  
+    
+    .first .content p.learn {
+        background: #fff;
+        display: inline-block;
+        color: #6950F7;
+        padding: 15px 25px;
+        margin: 15px 0 0;
+        border-radius: 40px;
+        border: 2px solid #fff;
+        transition: all 0.3s ease;
+    }
+    
+    .first .content p.learn:hover {
+        box-shadow: 0 0 100px 4px #fff;
+        cursor: pointer;
+    }
+    
+    .second {
+        width: 100%;
+        padding: 40px;
+        border-bottom: 1px solid #e6e6e6;
+        background: #fafafa;
+        display: flex;
+        justify-content: center
+    }
+    
+    .second img {
+        height: 80px;
+        width: auto;
+        margin: 0 10px;
+        filter: grayscale(100%);
+    }
+    
+    .menu {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        z-index: 999;
+    }
+    
+    .menu p {
+        display: inline-block;
+        color: #fff;
+        font-family: 'Karla';
+        padding: 0 10px;
+        font-size: 18px;
+        transition: all 0.3s ease;
+    }
+    
+    .menu p:hover {
+        letter-spacing: 1px;
+        cursor: pointer;
+    }
+    
+    .logo {
+        position: absolute;
+        top: 30px;
+        left: 60px;
+        font-family: 'Fredoka One';
+        z-index: 99;
+        color: #fff;
+        filter: blur(1px)
+    }
+    
+    .first .fa-arrow-circle-down {
+        position: absolute;
+        left: 50%;
+        bottom: 40px;
+        transform: translateX(-50%);
+        z-index: 999;
+        color: #fff;
+        font-size: 30px;
+        filter: grayscale(100%)
+    }
+    
+    .third {
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 80vh;
+    }
+    
+    .block {
+        flex: 1;
+        padding: 80px;
+    }
+    
+    .purple {
+        background: rgba(0,0,255,0.1);
+        text-align: center;
+        display: flex;
+        align-items: center;
+    }
+    
+    .secondColor {
+        background: rgba(50,235,150,0.3)
+    }
+    
+    .purple h2 {
+        font-family: 'Karla';
+    }
+    
+    .purple p {
+        font-family: 'Yantramanav';
+        font-size: 20px;
+    }
+    
+    .block img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .block.back {
+        background-image: url("https://static.wixstatic.com/media/d8d8797c87b94d8681d402e08eab6ac7.jpg/v1/fill/w_1010,h_960,al_c,q_85,usm_0.66_1.00_0.01/d8d8797c87b94d8681d402e08eab6ac7.webp");
+        background-size: cover;
+        filter: grayscale(100%);
+    }
+    
+    .block.other {
+        background-image: url("https://static.wixstatic.com/media/24352a95df9d4d0393d5115facf22c28.jpg/v1/fill/w_1010,h_960,al_c,q_85,usm_0.66_1.00_0.01/24352a95df9d4d0393d5115facf22c28.webp");
+        background-size: cover;
+        filter: grayscale(100%);
+    }
+    
+</style>
+
+</head>
+<body>
+    
+    <h1 class="logo">Saths</h1>
+    
+    <nav class="menu">
+        <p>Home</p>
+        <p>About</p>
+        <p>Past Events</p>
+        <p>Contact</p>
+    </nav>
+
+    <div class="first">
+        <div class="content">
+            <h1>Saths Organisation</h1>
+            <p>We are an organisation, aiming to rehabilitate and integrate the mentally challenged back into society</p>
+            <p class="learn">Learn more</p>
+        </div>
+        <i class="fa fa-arrow-circle-down"></i>
+    </div>
+    
+    <div class="second">
+        <div class="images">
+            <img src="http://ncsthechallenge.org/site/uploads/2015/08/social-ncs.png">
+            <img src="https://blueskydevelopment.co.uk/wp-content/uploads/2014/11/The-Challenge-NEW-logo-250x170.png">
+        </div>
+    </div>
+    
+    <div class="third">
+        <div class="block purple">
+            <div class="content">
+                <h2>About us</h2>
+                <p>S.A.T.H.S. stands for Subjugating the Abulia through Holistic Structures. Abulia is an absence of willpower or an inability to act decisively, a symptom of schizophrenia or other mental illness. A scheme for young and older adults alike, we open our arms to those with lived in experiences of mental health, who have given up on the system, but still seeks support.</p>
+            </div>
+        </div>
+        <div class="block back"></div>
+    </div>
+    
+    <div class="third">
+        <div class="block other"></div>
+        <div class="block purple secondColor">
+            <div class="content">
+                <p>If you are arty, musical, want to learn something new, enjoy dance, would not mind having a go at drama, just want to chat or want to show the world what you are competently capable of, with a positive twist, then come along to our sessions!</p>
+                <p>Based in Croydon, ten miles from London City. If you never try, you shall never know! Come along to some of our sessions!</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        $(".learn, .fa-arrow-circle-down").click(function() {
+            $('html, body').animate({
+                scrollTop: $(".second").offset().top
+            }, 800);
+        });
+    </script>
+
+</body>
+</html> 

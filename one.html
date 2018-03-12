@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Site</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Karla|Yantramanav|Open+Sans|PT+Sans+Narrow:300|Fredoka+One|Lato|Roboto" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<meta name="theme-color" content="#3399ff">
+
+<style>
+    
+    a,a:link,a:visited,.a:hover,.a:focus,a:active{
+        color: inherit;
+        text-decoration: none;
+    }
+    
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        outline: 0;
+    }
+    
+    body {
+        margin: 0
+    }
+    
+    .first {
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        background: #b0dbfb;
+        overflow: hidden;
+    }
+    
+    .first .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+        z-index: 99999;
+        width: 100%;
+        margin: 0 auto;
+        max-width: 730px;
+        padding: 0 40px;
+    }
+    
+    .first h1 {
+        font-family: 'Fredoka One';
+        font-size: 60px;
+        color: #fff;
+        font-weight: 900;
+        margin: 0;
+        padding: 10px 0;
+    }
+    
+    .first p {
+        font-family: 'Karla';
+        font-size: 24px;
+        color: #e6e6e6;
+        margin: 0;
+        padding: 10px 0;
+        font-weight: 900
+    }
+    
+    @media(max-width: 730px){
+        .first p {font-size: 20px}
+        p.learn {font-size: 24px !important}
+    }
+    
+    @media(max-width: 468px){
+        .first h1 {font-size: 45px}
+        .menu {display: none}
+        .menuOpener {
+            right: 50% !important;
+            transform: translateX(50%);
+        }
+        .menuOpener span:last-child {
+            width: 40px !important;
+        }
+    }
+    
+    .bubble {
+        position: absolute;
+        height: 50px;
+        width: 50px;
+    }
+    
+    .b1 {
+        background: #39f;
+        border-radius: 100%;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        width: 121vw;
+        height: 230vh;
+        transform: translate(-50%,-50%);
+    }
+
+    .b2 {
+        background: #AFBBF5;
+        bottom: 0;
+        left: 0;
+        border-radius: 100%;
+        z-index: 99;
+        width: 250vw;
+        height: 160vh;
+        transform: translate(-50%,50%);
+    }
+    
+    .b3 {
+        top: 0;
+        right: 0;
+        background: #f5d04c;
+        border-radius: 100%;
+        z-index: 9;
+        width: 120vw;
+        height: 120vh;
+        transform: translate(50%,-50%);
+    }
+    
+    .menuOpener {
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 40px;
+        z-index: 99999;
+        direction: rtl;
+    }
+    
+    .menuOpener span {
+        background: #fff;
+        height: 4px;
+        width: 40px;
+        display: block;
+        margin-bottom: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .menuOpener span:last-child {
+        width: 30px;
+    }
+    
+    .menuOpener:hover span {
+        box-shadow: 0 0 20px 10px #fff;
+    }
+    
+    .menuOpener:hover {cursor: pointer}
+    
+    p.learn {
+        background: #fff;
+        color: #39f;
+        display: inline-block;
+        font-size: 28px;
+        padding: 10px 40px;
+        border-radius: 40px;
+        margin-top: 15px;
+        transition: all 0.3s ease;
+    }
+    
+    p.learn:hover {
+        box-shadow: 0 0 0 10px #fff;
+        background: #39f;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    .social {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+        padding-bottom: 40px;
+    }
+    
+    .social i {
+        color: #fff;
+        padding: 0 5px;
+        font-size: 24px;
+        transition: all 0.3s ease;
+    }
+    
+    .social i:hover {
+        filter: blur(2px);
+        cursor: pointer;
+    }
+    
+    .menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 40px;
+        z-index: 9999
+    }
+    
+    .menu p {
+        color: #fff;
+        padding: 0 10px;
+        display: inline-block;
+        font-family: 'Karla';
+        margin: 0;
+        font-size: 18px;
+        transition: all 0.3s ease;
+    }
+    
+    .menu p:hover {
+        filter: blur(2px);
+        cursor: pointer;
+    }
+    
+    .sponsors {
+        width: 100%;
+        padding: 40px;
+        border-bottom: 1px solid #e6e6e6;
+        background: #fafafa;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .sponsors img {
+        height: 70px;
+        width: auto;
+        filter: grayscale(100%);
+        margin: 0 10px;
+    }
+    
+    .about {
+        width: 100%;
+        padding: 40px 40px 60px;
+        background: #fff;
+        font-family: 'Yantramanav';
+    }
+    
+    .about .content {
+        margin: 0 auto;
+        max-width: 600px;
+    }
+    
+    .about h2 {
+        font-size: 30px;
+        font-family: 'Open Sans';
+    }
+    
+    .about p {
+        font-size: 20px;
+        padding: 20px 0;
+        letter-spacing: .3px;
+    }
+    
+    .imageHolder {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 40px 0;
+    }
+    
+    .about img {
+        height: 100px;
+        width: auto;
+        text-align: center;
+        border: 2px solid #39f;
+    }
+    
+    .about img:nth-child(2) {
+        height: 200px;
+        border: 4px solid red;
+    }
+    
+    .about img:nth-child(3){
+        height: 120px;
+    }
+    
+    .about img:nth-child(4){
+        height: 140px;
+        border-left: 0;
+    }
+    
+    p.line {
+        position: relative;
+        background: rgba(0,0,255,0.1);
+        padding: 80px;
+        text-align: center;
+    }
+    
+    .third {
+        width: 100%;
+        height: 80vh;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        transition: all 0.3s ease-out
+    }
+    
+    .third:hover {
+        cursor: pointer;
+    }
+    
+    .thirdOne {
+        background-image: url("https://static.wixstatic.com/media/64ac04_423415c4c17a4f3ea2d88f7a88cd860c~mv2_d_4288_3216_s_4_2.jpg");
+    }
+    
+    .thirdTwo {
+        background-image: url("https://static.wixstatic.com/media/64ac04_ab26da0998ee415b9d501c97b0e5d9e2~mv2.jpg") !important;
+    }
+    
+    .thirdThree {
+        background-image: url("https://static.wixstatic.com/media/64ac04_b1d55d76afce4dc6a69ab596f07b11e1~mv2_d_2988_5312_s_4_2.jpg") !important;
+    }
+    
+    .pageCount {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 10px 35px;
+        color: #fff;
+        font-family: 'Karla';
+        z-index: 99999;
+        background: #f05656;
+    }
+    
+    .pageCount:after {
+        content: ' visits';
+        color: #fff
+    }
+
+    @media(max-width: 469px){
+        .social {
+            padding-bottom: 0;
+            bottom: 80px;
+        }
+        .social i {font-size: 20px;}
+        .pageCount {
+            left: 50%;
+            transform: translateX(-50%);
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+        }
+    }
+    
+    .contact {
+        width: 100%;
+        padding: 60px;
+        position: relative;
+        background: #5B9BFF;
+    }
+    
+    .contact iframe {
+        width: 100%;
+        min-height: 200px;
+        margin-bottom: 134px;
+        filter: grayscale(100%);
+    }
+    
+    .card {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border: 1px solid #333;
+        border-left: 0;
+        padding: 40px;
+        padding-top: 30px;
+        text-align: left;
+        width: 100%;
+    }
+    
+    .card h3 {
+        color: #444;
+        font-family: 'Yantramanav';
+        font-weight: 100;
+        font-size: 24px;
+        margin: 0;
+        padding: 10px 0 20px
+    }
+    
+    .card p {
+        margin: 0;
+        font-family: 'Roboto';
+        font-size: 14px;
+        color: #6e6e6e;
+        -webkit-font-smoothing: antialiased;
+        letter-spacing: .3px;
+    }
+    
+    @media(max-width: 824px){
+        .card {
+            top: initial;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-width: 100%;
+            transform: none
+        }
+    }
+    
+    footer {
+        width: 100%;
+        padding: 20px 40px;
+        text-align: center;
+        background: #333;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end
+    }
+    
+    .icons {
+        flex: 1;
+        text-align: right;
+    }
+    
+    .icons i {
+        border: 2px solid #e6e6e6;
+        margin-left: 2px;
+        padding: 6px;
+        color: #e6e6e6;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+    
+    .icons i:hover {
+        background: #fff;
+        color: #39f;
+        cursor: pointer;
+    }
+    
+    .icons .fa-envelope:hover {
+        color: #6e6e6e
+    }
+    
+    footer p {
+        margin: 0;
+        font-family: 'Karla';
+    }
+    
+    .fullMenu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #f05656;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 999999999;
+    }
+    
+    .fullMenu p {
+        margin: 0;
+        font-family: 'Fredoka One';
+        font-size: 5vh;
+        padding: 5px 0;
+        transition: all 0.3s ease;
+    }
+    
+    .fullMenu i {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        color: #fff;
+        font-size: 40px
+    }
+    
+    .fullMenu i:hover {
+        cursor: pointer;
+    }
+    
+    .outtaSight {
+        display: none;
+    }
+    
+    .fullMenu p:hover {
+        letter-spacing: 2px;
+        cursor: pointer;
+    }
+    
+</style>
+
+</head>
+<body>
+
+    <nav class="fullMenu outtaSight">
+        <a href="one.html"><p>Home</p></a>
+        <a href="about.html"><p>About</p></a>
+        <a href="gallery.html"><p>Gallery</p></a>
+        <p class="contactDown">Contact</p>
+        <a href="games.html"><p>Games</p></a>
+        <a href="music.html"><p>Music</p></a>
+        <a href="updates.html"><p>Updates</p></a>
+        <a href="events.html"><p>Events</p></a>
+        <a href="express-yourself.html"><p>Express Yourself</p></a>
+        <a href="blog.html"><p>Blog</p></a>
+        <i class="fa fa-close"></i>
+    </nav>
+    
+    <nav class="menuOpener">
+        <span></span>
+        <span></span>
+    </nav>
+    
+    <nav class="menu">
+        <a href="one.html"><p>Home</p></a>
+        <a href="about.html"><p>About</p></a>
+        <a href="gallery.html"><p>Gallery</p></a>
+        <p class="contactDown">Contact</p>
+    </nav>
+    <div class="first">
+        <span class="pageCount">1</span>
+        <div class="bubble b1"></div>
+        <div class="bubble b2"></div>
+        <div class="bubble b3"></div>
+        <div class="content">
+            <h1>S.A.T.H.S Organisation</h1>
+            <p>We are an organisation, aiming to  rehabilitate and integrate the mentally challenged back into society, whilst providing work experience for others who want to have a career in mental health.</p>
+            <p class="learn">Learn more</p>
+        </div>
+        <div class="social">
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-instagram"></i>
+        </div>
+    </div>
+    
+    <div class="sponsors">
+        <img src="http://ncsthechallenge.org/site/uploads/2015/08/social-ncs.png">
+        <img src="https://blueskydevelopment.co.uk/wp-content/uploads/2014/11/The-Challenge-NEW-logo-250x170.png">
+    </div>
+    
+    <a href="about.html">
+        <div class="about">
+            <div class="content">
+                <h2>About us</h2>
+                <p>S.A.T.H.S. stands for Subjugating the Abulia through Holistic Structures. Abulia is an absence of willpower or an inability to act decisively, a symptom of schizophrenia or other mental illness.</p>
+                <div class="imageHolder">
+                    <img src="https://static.wixstatic.com/media/64ac04_761721e6103b400bb75ff0090f011c1e.jpg/v1/fill/w_823,h_780,al_c,q_85/64ac04_761721e6103b400bb75ff0090f011c1e.webp">
+                     <img src="https://static.wixstatic.com/media/64ac04_66e4ca70af694a7cb60588c6c73a7da3.jpg/v1/fill/w_556,h_744,al_c,q_85,usm_0.66_1.00_0.01/64ac04_66e4ca70af694a7cb60588c6c73a7da3.webp">
+                    <img src="https://static.wixstatic.com/media/64ac04_261832e359ba420e962e2121980f04e9~mv2_d_4288_3216_s_4_2.jpg/v1/fill/w_766,h_576,al_c,q_85,usm_0.66_1.00_0.01/64ac04_261832e359ba420e962e2121980f04e9~mv2_d_4288_3216_s_4_2.webp">
+                    <img src="https://static.wixstatic.com/media/64ac04_423415c4c17a4f3ea2d88f7a88cd860c~mv2_d_4288_3216_s_4_2.jpg/v1/fill/w_778,h_584,al_c,q_85,usm_0.66_1.00_0.01/64ac04_423415c4c17a4f3ea2d88f7a88cd860c~mv2_d_4288_3216_s_4_2.webp">
+                </div>
+                <p class="line">A scheme for young and older adults alike, we open our arms to those with lived in experiences of mental health, who have given up on the system, but still seeks support.</p>
+                    <p>If you are arty, musical, want to learn something new, enjoy dance, would not mind having a go at drama, just want to chat or want to show the world what you are competently capable of, with a positive twist, then come along to our sessions!</p>
+            </div>
+        </div>
+    </a>
+    
+    <div class="third thirdOne"></div>
+    
+    <div class="contact" id="contact">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.9077986390203!2d-0.12573858480653155!3d51.5149075179761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604ccab2ffaa9%3A0x9192a9c4dd80455b!2sCovent+Garden!5e0!3m2!1sen!2suk!4v1518479869230" width="600" height="450" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+        <div class="card">
+            <h3>Contact us</h3>
+            <p>71-75 Shelton Street</p>
+            <p>London</p>
+            <p>WC2H 9JQ</p>
+            <p>jocelyn.baffour@saths.org.uk</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="who">
+            <p>2018 S.A.T.H.S Ltd</p>
+        </div>
+        <div class="icons">
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-envelope"></i>
+        </div>
+    </footer>
+    
+    <script>
+        var counter = 0;
+        $.getJSON('https://api.myjson.com/bins/1ge7ax', function(date) {
+            counter = parseInt(date.count);
+            $(".pageCount").html(counter);
+            counter = counter + 1;
+            var obj = {
+                "count": counter,
+            };
+            var dataTotal = JSON.stringify(obj)
+            $.ajax({
+                url:"https://api.myjson.com/bins/1ge7ax",
+                type:"PUT",
+                data: dataTotal,
+                contentType:"application/json; charset=utf-8",
+                dataType:"json",
+                success: function(data, textStatus, jqXHR){
+
+                }
+            }); 
+        });
+        
+        $(document).on("click",".thirdOne",function(){
+            $(this).addClass("thirdTwo").removeClass("thirdOne");
+        });
+        $(document).on("click",".thirdTwo",function(){
+            $(this).addClass("thirdThree").removeClass("thirdTwo");
+        });
+        $(document).on("click",".thirdThree",function(){
+            $(this).removeClass("thirdThree").addClass("thirdOne");
+        });
+        
+        
+        $(".learn").click(function() {
+            $('html, body').animate({
+                scrollTop: $(".sponsors").offset().top
+            }, 700);
+        });
+        
+        $(".contactDown").click(function() {
+            $(".fullMenu").addClass("outtaSight");
+            $('html, body').animate({
+                scrollTop: $(".contact").offset().top
+            }, 1200);
+        });
+        
+        $(".fullMenu i").click(function(){
+            $(this).parent().addClass("outtaSight");
+        }); 
+        
+        $(".menuOpener").click(function(){
+            $(".fullMenu").removeClass("outtaSight");
+        }); 
+        
+    </script>
+    
+</body>
+</html> 
