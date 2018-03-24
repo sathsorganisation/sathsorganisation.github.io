@@ -434,6 +434,36 @@
         min-height: 100vh;
     }
     
+        .first .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    z-index: 99999;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 730px;
+    padding: 0 40px;
+    }
+    
+        @media(max-width: 730px){
+        .first p {font-size: 20px}
+        p.learn {font-size: 24px !important}
+    }
+    
+    @media(max-width: 468px){
+        .first h1 {font-size: 45px}
+        .menu {display: none}
+        .menuOpener {
+            right: 50% !important;
+            transform: translateX(50%);
+        }
+        .menuOpener span:last-child {
+            width: 40px !important;
+        }
+    }
+    
 </style>
 
 </head>
